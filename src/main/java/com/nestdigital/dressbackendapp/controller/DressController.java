@@ -25,4 +25,10 @@ public class DressController {
     public List<DressModel> viewdress(){
         return (List<DressModel>) dao.findAll();
     }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping("/searchdress")
+    public List<DressModel> searchdress (@RequestBody DressModel dress){
+        return (List<DressModel>) dao.searchdress(dress.getDressname());
+    }
 }
